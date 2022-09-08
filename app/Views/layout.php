@@ -5,11 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" href="/favicon.ico" type="image/ico">
     <title><?= $site_title ?></title>
+
+    <script src="scripts.js"></script>
 
     <style>
         body {
@@ -25,15 +27,43 @@
 
     <div class="container p-3 my-3 text-dark">
         <div class="card rounded d-flex flex-row">
-            <div class="w-50">
-                <h1><?= $site_title ?></h1>
-                <p>Be a Creator | Not a Consumer</p>
-            </div>
-            <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModalCenter">
-                Sign In
-            </button>
-            <div class="w-50">
+            <div class="w-70 mr-5">
                 <img src="/GrowToBeMe_LOGO_hp.png" class="img-fluid">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 span6" style="float: none; margin: 0 auto;">
+                <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#exampleModalCenter">
+                    Sign In
+                </button>
+            </div>
+            <div class="col-4" id="signin"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Username" name="username" id="usernameFeild">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" name="password" id="passwordFeild">
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Sign in" class="btn btn-secondary" data-dismiss="modal" onclick="submitForm();">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -41,5 +71,7 @@
     <?= $this->renderSection('content') ?>
 
 </body>
+
+
 
 </html>
