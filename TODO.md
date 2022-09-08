@@ -9,3 +9,5 @@
 
 ### Completed Column ✓
 - [x] Made sign in button communicate with server
+- [x] Made landing page dynamic
+- [x] Changed sign in button location

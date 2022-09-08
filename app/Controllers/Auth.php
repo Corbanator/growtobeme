@@ -8,11 +8,11 @@ class Auth extends BaseController
 {
     public function index()
     {
-        $username = $_POST['username'];
-        $spass = $_POST['password']; //TODO: set up sanitazation rules
+        $username = esc(htmlspecialchars($_POST['username']));
+        $spass = esc(htmlspecialchars($_POST['password'])); //TODO: set up sanitazation rules
 
         $password = hash("sha256", $spass, False);
-
+        
         $model = new UserModel();
         
         $dpass = $model->findColumn("password");
@@ -22,7 +22,7 @@ class Auth extends BaseController
         $error = "";
 
         for ($i = 0;$i < count($dusr); $i++){
-            
+
             if ($dpass[$i] == $password){
                 $success = True;
             }else{

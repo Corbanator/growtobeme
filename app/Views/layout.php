@@ -33,9 +33,10 @@
         </div>
         <div class="row">
             <div class="col-6 span6" style="float: none; margin: 0 auto;">
-                <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-primary border-0 w-25" data-toggle="modal" data-target="#exampleModalCenter">
                     Sign In
                 </button>
+                <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
             </div>
             <div class="col-4" id="signin"></div>
         </div>
@@ -61,7 +62,6 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Sign in" class="btn btn-secondary" data-dismiss="modal" onclick="submitForm();">
-                            <input type="submit" value="Create Account" class="btn btn-secondary" data-dismiss="modal" onclick="createAcount();">
                         </div>
                     </form>
                 </div>
