@@ -9,7 +9,7 @@ class Auth extends BaseController
     public function index()
     {
         $username = esc(htmlspecialchars($_POST['username']));
-        $spass = esc(htmlspecialchars($_POST['password'])); //TODO: set up sanitazation rules
+        $spass = esc(htmlspecialchars($_POST['password']));
 
         $password = hash("sha256", $spass, False);
         

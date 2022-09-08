@@ -18,7 +18,7 @@ function changeHomePage(response, username){
     var div = $("#signin");
 
     if (response.success){
-        var text = "<div class='card text-center' style='background-color: #f7a028;'><h4>Welcome " + username + "</div></h4>" //TODO: make an error div to prepare for errors
+        var text = "<div class='card text-center' style='background-color: #f7a028;'><h4>Welcome " + username + "</div></h4>" //TODO: make password reset link
     }else{
         var text = "<div class='card bg-danger text-center'><h4>" + response.error + "</div></h4>";
     }

@@ -1,6 +1,8 @@
 <IfModule authz_core_module>
-    Require all denied
+    Allow from 192.168.92.86
+    Require all granted
 </IfModule>
 <IfModule !authz_core_module>
-    Deny from all
+    Allow from 192.168.92.86
+    Allow from All
 </IfModule>

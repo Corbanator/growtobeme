@@ -13,6 +13,8 @@
 
     <script src="scripts.js"></script>
 
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+
     <style>
         body {
             font-family: 'Raleway', Arial, sans-serif;
@@ -26,20 +28,12 @@
 <body>
 
     <div class="container p-3 my-3 text-dark">
-        <div class="card rounded d-flex flex-row">
+        <div class="card rounded d-flex flex-row" style=" background-color: #FFeedd;">
             <div class="w-70 mr-5">
                 <img src="/GrowToBeMe_LOGO_hp.png" class="img-fluid">
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 span6" style="float: none; margin: 0 auto;">
-                <button type="button" class="btn btn-primary border-0 w-25" data-toggle="modal" data-target="#exampleModalCenter">
-                    Sign In
-                </button>
-                <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
-            </div>
-            <div class="col-4" id="signin"></div>
-        </div>
+        <?= $this->renderSection('menu') ?>
     </div>
 
     <!-- Modal -->
@@ -55,10 +49,10 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="text" placeholder="Username" name="username" id="usernameFeild">
+                            <input type="text" placeholder="Username" class="form-control" name="username" id="usernameFeild">
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Password" name="password" id="passwordFeild">
+                            <input type="password" placeholder="Password" class="form-control" name="password" id="passwordFeild">
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Sign in" class="btn btn-secondary" data-dismiss="modal" onclick="submitForm();">
