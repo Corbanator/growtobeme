@@ -40,6 +40,7 @@ $routes->get("/games/(:any)", "Games::game/$1");
 $routes->post("/auth", "Auth");
 $routes->get("/test", "Hashtest");
 $routes->get("/create", "Create");
+$routes->post("/create", "Create");
 
 /*
  * --------------------------------------------------------------------
