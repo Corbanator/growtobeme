@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get("/games/(:any)", "Games::game/$1");
 $routes->post("/auth", "Auth");
+$routes->get("/test", "Hashtest");
 
 /*
  * --------------------------------------------------------------------

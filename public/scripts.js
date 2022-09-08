@@ -8,15 +8,16 @@ function submitForm(){
         password: password
     },
     function(data, status){
-        if (status == "success"){
-            if (data == "working"){
-                changeHomePage(username);
-            }
+        let response = JSON.parse(data);
+        console.log(response);
+        if (response.success){
+            changeHomePage(response, username);
         }
+        
     });
 }
 
-function changeHomePage(username){
+function changeHomePage(respnose, username){
     var div = $("#signin");
 
     var text = "<h3>Welcome " + username + "</h3>" //TODO: make an error div to prepare for errors

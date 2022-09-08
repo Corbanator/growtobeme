@@ -61,6 +61,7 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Sign in" class="btn btn-secondary" data-dismiss="modal" onclick="submitForm();">
+                            <input type="submit" value="Create Account" class="btn btn-secondary" data-dismiss="modal" onclick="createAcount();">
                         </div>
                     </form>
                 </div>

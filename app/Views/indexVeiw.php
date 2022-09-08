@@ -19,7 +19,7 @@
             <div class="card" >
                 <h2 class="card-title"><?= $card["gameName"]; ?></h2>
                 <img src="<?= $card["imgPath"] ?>" class="rounded thumbnail" alt="Image of <?= $card['gameName']; ?>">
-                <h4 class="card-text"><?= $card["gameDescription"]; ?></h4>
+                <p class="card-text"><?= $card["gameDescription"]; ?></p>
                 <a href="/games/<?= $card["filePath"] ?>" class="btn stretched-link">See Game</a>
             </div>
         </div>
