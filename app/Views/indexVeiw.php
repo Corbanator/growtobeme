@@ -8,7 +8,27 @@
         </button>
         <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
     </div>
-    <div class="col-4" id="signin"></div>
+
+    <div class="col-4" id="signin">
+        <?php if(isset($signin)) : ?>
+
+            <?php if($signin) : ?>
+                <div class='card text-center' style='background-color: #f7a028;'>
+                    <h4>Welcome <?= $username ?></h4>
+                    <a href='/account'>Account</a>
+                </div>
+            <?php endif; ?>
+
+            <?php if(!$signin) : ?>
+                <div class='card text-center' style='background-color: #f7a028;'>
+                    <h4><?= $error ?></h4>
+                    <a href='/account'>Account</a>
+                </div>
+            <?php endif; ?>
+
+        <?php endif; ?>
+    </div>
+
 </div>
 <?= $this->endSection() ?>
 

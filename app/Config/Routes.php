@@ -37,7 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get("/games/(:any)", "Games::game/$1");
-$routes->post("/auth", "Auth");
+$routes->post("/", "Home");
 $routes->get("/test", "Hashtest");
 $routes->get("/create", "Create");
 $routes->post("/create", "Create");

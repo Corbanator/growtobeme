@@ -2,10 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Create extends BaseController
 {
     public function index()
     {
+        $model = new UserModel();
+
         $data = [
             "site_title"=> "Grow To Be Me"
         ];
@@ -14,11 +18,34 @@ class Create extends BaseController
             helper(['form']);
 
             $rules = [
-                'email' => 'required'
+                'email' => 'required|valid_email',
+                'username' => [
+                    "rules" => 'required|max_length[255]|blackListCheck|othername',
+                    "errors" => [
+                        "required" => "Put in a username, why do you not want people to know who you are, you crazy person.",
+                        "max_length[255]" => "Please put in a username of under 255 characters, why would you ever need more? Like seriously though.",
+                        "blackListCheck" => "Well, I'm disapointed in you. Why did you put in a blacklisted name. Please don't do that",
+                        "othername" => "Try to be more original, this username is already taken."
+                    ]
+                ],
+                'password' => 'required|min_length[7]'
             ];
 
             if ($this->validate($rules)){
-                //db insertion
+                $model = new UserModel();
+
+                $username = esc(htmlspecialchars($_POST['username']));
+                $password = hash("sha256", esc(htmlspecialchars($_POST['password'])), False);
+                $email = esc(htmlspecialchars($_POST['email']));
+
+                $user = [
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => $password
+                ];
+
+                $model->insert($user);
+                return redirect("/");
             }else{
                 $data = [
                     "site_title" => "Grow To Be Me",

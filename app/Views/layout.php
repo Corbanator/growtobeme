@@ -47,16 +47,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="http://localhost/" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" placeholder="Username" class="form-control" name="username" id="usernameFeild">
                         </div>
                         <div class="form-group">
                             <input type="password" placeholder="Password" class="form-control" name="password" id="passwordFeild">
                         </div>
-                        <div class="modal-footer">
-                            <input type="submit" value="Sign in" class="btn btn-secondary" data-dismiss="modal" onclick="submitForm();">
-                        </div>
+                        <input type="submit" value="Sign in" class="btn btn-secondary">
                     </form>
                 </div>
             </div>

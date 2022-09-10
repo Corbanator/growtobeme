@@ -8,20 +8,8 @@ function submitForm(){
         password: password
     },
     function(data, status){
-        let response = JSON.parse(data);
-        console.log(response);
-        changeHomePage(response, username);
+        // let response = JSON.parse(data);
+        console.log(data);
+        // changeHomePage(response, username);
     });
-}
-
-function changeHomePage(response, username){
-    var div = $("#signin");
-
-    if (response.success){
-        var text = "<div class='card text-center' style='background-color: #f7a028;'><h4>Welcome " + username + "</div></h4>" //TODO: make password reset link
-    }else{
-        var text = "<div class='card bg-danger text-center'><h4>" + response.error + "</div></h4>";
-    }
-
-    div.html(text);
 }
