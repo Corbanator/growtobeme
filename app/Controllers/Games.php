@@ -10,6 +10,7 @@ class Games extends BaseController
     }
 
     public function game($id){
-        return $id; //TODO: Sanitization here otherwise bad things
+        // return $id; //TODO: Sanitization here otherwise bad things
+        return view("gamesfolder/dinogame/index.html");
     }
 }

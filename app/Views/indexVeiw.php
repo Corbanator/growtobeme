@@ -3,7 +3,7 @@
 <?= $this->section('menu') ?>
 <div class="row">
     <div class="col-6 span6" style="float: none; margin: 0 auto;">
-        <button type="button" class="btn btn-primary border-0 w-25" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#exampleModalCenter">
             Sign In
         </button>
         <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
@@ -51,7 +51,13 @@
                 <h2 class="card-title"><?= $card["gameName"]; ?></h2>
                 <img src="<?= $card["imgPath"] ?>" class="rounded thumbnail" alt="Image of <?= $card['gameName']; ?>">
                 <p class="card-text"><?= $card["gameDescription"]; ?></p>
-                <a href="/games/<?= $card["filePath"] ?>" class="btn stretched-link">See Game</a>
+
+                <div class="container">
+                    <div class="row">
+                        <a href="/games/<?= $card["id"] ?>" class="btn col-5 mr-5">See Game</a>
+                        <a href="/tables/<?= $card["id"] ?>" class="btn col-5">Scores</a>
+                    </div>
+                </div>
             </div>
         </div>
     <?php endforeach ?>
