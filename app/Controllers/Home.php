@@ -7,14 +7,14 @@ class Home extends BaseController
 {
     public function index()
     {
-        $session = \Config\Services::session();
         $model = new GameModel();
+        $session = \Config\Services::session();
 
         $cards = $model->findAll();
 
         $data = [
             "site_title" => "Grow To Be Me",
-            "cards" => $cards
+            "cards" => $cards,
         ];
 
 
@@ -40,7 +40,7 @@ class Home extends BaseController
 
         if ($session->get('logedIn') == True){
             $data = [
-                'signin' => True,
+                'signin' => $session->get("logedIn"),
                 'username' => $session->get('username'),
                 "site_title" => "Grow To Be Me",
                 "cards" => $cards
@@ -86,6 +86,13 @@ class Home extends BaseController
                 "username" => $username,
                 "id" => $id,
                 "logedIn" => True
+            ];
+            $session->set($data);
+        }else{
+            $data = [
+                "username" => "",
+                "id" => "",
+                "logedIn" => False
             ];
             $session->set($data);
         }

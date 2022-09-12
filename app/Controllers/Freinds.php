@@ -15,9 +15,9 @@ class Freinds extends BaseController
 
         $data = [
             "site_title" => "Friends",
-            "friends" =>
-        ]
+            
+        ];
         
-        return json_encode($query);
+        return view("friends", $data);
     }
 }
