@@ -10,19 +10,36 @@
     </div>
 
     <div class="col-4" id="signin">
-        <?php if(isset($signin)) : ?>
+        <?php if (isset($signin)) : ?>
 
-            <?php if($signin) : ?>
-                <div class='card text-center' style='background-color: #f7a028;'>
-                    <h4>Welcome <?= $username ?></h4>
-                    <a href='/account'>Account</a>
+            <?php if ($signin) : ?>
+                <link rel="stylesheet" href="style.css">
+                <div class="wrapper">
+                    <!-- Sidebar -->
+                    <nav id="sidebar" class="rounded">
+                        <div class="sidebar-header rounded">
+                            <h4><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Welcome <?= $username ?></a></h4>
+                        </div>
+
+                        <ul class="list-unstyled components collapse" id="homeSubmenu">
+
+                            <li>
+                                <a href="/account">Acount</a>
+                            </li>
+
+                            <li>
+                                <a href="/freinds">Freinds</a>
+                            </li>
+                        </ul>
+                    </nav>
+
                 </div>
+
             <?php endif; ?>
 
-            <?php if(!$signin) : ?>
+            <?php if (!$signin) : ?>
                 <div class='card text-center' style='background-color: #f7a028;'>
                     <h4><?= $error ?></h4>
-                    <a href='/account'>Account</a>
                 </div>
             <?php endif; ?>
 
