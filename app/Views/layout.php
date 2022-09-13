@@ -47,7 +47,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="http://localhost/" method="post" enctype="multipart/form-data">
+                    <form action="/" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" placeholder="Username" class="form-control" name="username" id="usernameFeild">
                         </div>

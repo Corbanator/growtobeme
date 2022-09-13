@@ -21,7 +21,7 @@ class CustomRules{
         $users = $model->findColumn("username");
 
         foreach($users as $user){
-            if (strtolower($user) == strtolower($str)){
+            if ($user == $str){
                 return false;
             }
         }
