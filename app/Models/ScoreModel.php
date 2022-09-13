@@ -30,7 +30,7 @@ class ScoreModel extends Model
 
         $builder = $db->table('users');
         $builder->select("username, score, gameName");
-        $builder->join('scores', 'scores.userid=users.id');
+        $builder->join('scores', 'scores.userid=users.id')->where("userid", $id);
         $builder->join('games', 'scores.gameId=games.id');
         $query = $builder->get()->getResult();
 
