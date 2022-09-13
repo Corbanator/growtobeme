@@ -28,9 +28,9 @@ class Freinds extends BaseController
 
             $result = json_decode(json_encode($result), true);
 
-            $username = $result[0]["username"];
-            $gameName = $result[0]["gameName"];
-            $score = $result[0]["score"];
+            $username = $result[$i]["username"];
+            $gameName = $result[$i]["gameName"];
+            $score = $result[$i]["score"];
 
             $score = [
                 "username" => $username,
