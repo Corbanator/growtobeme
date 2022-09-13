@@ -29,7 +29,7 @@ class Freinds extends BaseController
             $result = json_decode(json_encode($result), true);
 
             $username = $result[0]["username"]; //TODO: if person has no scores submited it will break
-            $gameName = $result[0]["gameName"];
+            $gameName = $result[0]["gameName"]; //TODO: more than one score also breaks
             $score = $result[0]["score"];
 
             $score = [
