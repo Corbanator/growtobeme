@@ -28,7 +28,7 @@ class Freinds extends BaseController
 
             $result = json_decode(json_encode($result), true);
 
-            $username = $result[$i]["username"];
+            $username = $result[$i]["username"]; //TODO: if person has no scores submited it will break
             $gameName = $result[$i]["gameName"];
             $score = $result[$i]["score"];
 
@@ -38,7 +38,7 @@ class Freinds extends BaseController
                 "score" => $score
             ];
 
-            array_push($scores, $score);
+            array_push($scores, $result);
         }
 
         $data = [
