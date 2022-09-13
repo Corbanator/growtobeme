@@ -40,7 +40,9 @@ $routes->get("/games/(:any)", "Games::game/$1");
 $routes->post("/", "Home");
 $routes->get("/test", "Hashtest");
 $routes->get("/create", "Create");
-$routes->get("/freinds", "Freinds");
+$routes->get("/friends", "Friends");
+$routes->post("/friends", "Friends::submit");
+$routes->get("/account", "Account");
 $routes->post("/create", "Create");
 $routes->get("/tables/(:any)", "Scores::game/$1");
 

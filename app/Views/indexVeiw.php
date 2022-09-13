@@ -2,14 +2,16 @@
 
 <?= $this->section('menu') ?>
 <div class="row">
-    <div class="col-6 span6" style="float: none; margin: 0 auto;">
-        <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#exampleModalCenter">
-            Sign In
-        </button>
-        <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
+    <div class="col-md-6 span6" style="float: none; margin: 0 auto;">
+        <?php if (!isset($signin)) : ?>
+            <button type="button" class="btn btn-primary border-0" data-toggle="modal" data-target="#exampleModalCenter">
+                Sign In
+            </button>
+            <a href="/create"><button class="btn btn-primary border-0">Create Account</button></a>
+        <?php endif; ?>
     </div>
 
-    <div class="col-4" id="signin">
+    <div class="col-md-4" id="signin">
         <?php if (isset($signin)) : ?>
 
             <?php if ($signin) : ?>
@@ -28,7 +30,7 @@
                             </li>
 
                             <li>
-                                <a href="/freinds">Freinds</a>
+                                <a href="/friends">Friends</a>
                             </li>
                         </ul>
                     </nav>
@@ -66,7 +68,7 @@
         <div class="col-md-4">
             <div class="card">
                 <h2 class="card-title"><?= $card["gameName"]; ?></h2>
-                <img src="<?= $card["imgPath"] ?>" class="rounded thumbnail" alt="Image of <?= $card['gameName']; ?>">
+                <img src="<?= $card["imgPath"] ?>" class="rounded thumbnail" alt="Image of <?= $card['gameName']; ?>" onerror="this.src='game.webp'">
                 <p class="card-text"><?= $card["gameDescription"]; ?></p>
 
                 <div class="container">

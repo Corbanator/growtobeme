@@ -6,7 +6,7 @@ use App\Models\ScoreModel;
 
 use App\Models\FreindsModel;
 
-class Freinds extends BaseController
+class Friends extends BaseController
 {
     public function index()
     {
@@ -28,24 +28,30 @@ class Freinds extends BaseController
 
             $result = json_decode(json_encode($result), true);
 
+            $user = [
+                "username" => $result[0]['username']
+            ];
+
             for ($j = 0; $j < count($result); $j++){
-                $username = $result[$j]["username"]; //TODO: if person has no scores submited it will break
-                $gameName = $result[$j]["gameName"]; //TODO: more than one score also breaks
+                $gameName = $result[$j]["gameName"]; //TODO: if person has no scores submited it will break
                 $score = $result[$j]["score"];
 
                 $score = [
-                    "username" => $username,
                     "game" => $gameName,
                     "score" => $score
                 ];
 
-                array_push($scores, $score);
+                
+
+                array_push($user, $score);
             }
+
+            array_push($scores, $user);
         }
 
         $data = [
             "site_title" => "Friends",
-            "scores" => json_encode($scores)
+            "scores" => $scores
         ];
         
         return view("friends", $data);

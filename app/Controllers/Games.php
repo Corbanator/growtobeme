@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\GameModel;
+
 class Games extends BaseController
 {
     public function index()
@@ -11,6 +13,11 @@ class Games extends BaseController
 
     public function game($id){
         // return $id; //TODO: Sanitization here otherwise bad things
-        return view("gamesfolder/dinogame/index.html");
+
+        $model = new GameModel();
+        $game = $model->find($id);
+        $file = $game["filePath"];
+
+        return view("gamesfolder/{$file}/index.html");
     }
 }
