@@ -1,14 +1,16 @@
 # Things Corban is begging me to do and I need to do
 
 ### Column Name
+- [ ] Init all users with 0 as default scores
 - [ ] Change Account details
 - [ ] Insert Scores for games
-- [ ] Add Freind Request/Pending
+- [ ] Add Freind Pending
 - [ ] score tables for games
 - [ ] Add categories for games
 
 
-### Completed Column ✓
+### Completed Column ✓\
+- [x] Friend requests Being sent
 - [x] Add an error div for sign in
 - [x] Add validation create account requests
 - [x] Add account change page

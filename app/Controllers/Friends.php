@@ -54,7 +54,7 @@ class Friends extends BaseController
         $data = [
             "site_title" => "Friends",
             "scores" => $scores,
-            // "result" => $scoreModel->getScore($friendArray[1]["friend2"])
+            // "result" => $scoreModel->getScore($friendArray[1]["friend2"]) TODO: Delete this (was for debugging)
 
         ];
         return view("friends", $data);
