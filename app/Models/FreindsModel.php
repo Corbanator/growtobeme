@@ -46,7 +46,7 @@ class FreindsModel extends Model
         return $query;
     }
 
-    public function makeFriends($reqId, $frId){
+    public function makeFriends($reqId, $frId){ //TODO: check if request is already sent
         $db = \Config\Database::connect();
         $builder = $db->table("friendlist");
 
