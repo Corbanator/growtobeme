@@ -30,8 +30,24 @@
         </div>
     <?php endif ?>
 <?php endif ?>
+<?= $this->endSection() ?>
 
-<?php if (isset($result)) : ?>
-    <p><?= json_encode($result) ?></p>
-<?php endif ?>
+<?= $this->section('menu') ?>
+    <script src="scripts.js"></script>
+    <div style="mt-0">
+        <div class="card p-4 mt-2 mb-5 w-75" style="margin-right: auto; margin-left: auto;">
+            <form>
+                <div class="form-group">
+                    <label>Friend Username</label>
+                    <input type="text" class="form-control" id="friendName">
+                </div>
+            </form>
+            <div class="form-group">
+                    <button class="form-control btn btn-primary" onclick="sendFriendRequest();">Enter</button>
+                </div>
+            <div id="status">
+
+            </div>
+        </div>
+    </div>
 <?= $this->endSection() ?>

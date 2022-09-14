@@ -6,15 +6,15 @@ use CodeIgniter\Model;
 
 class FreindsModel extends Model
 {
-    protected $table      = 'freinds';
-    protected $primaryKey = 'freind1';
+    protected $table      = 'friends';
+    protected $primaryKey = 'friend1';
 
     protected $useAutoIncrement = true;
 
     // protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['freind1', 'freind2', 'accepted'];
+    protected $allowedFields = ['friend1', 'friend2', 'accepted'];
 
     // protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
@@ -44,5 +44,34 @@ class FreindsModel extends Model
         $query = $builder->union($union)->get()->getResult();
 
         return $query;
+    }
+
+    public function makeFriends($reqId, $frId){
+        $db = \Config\Database::connect();
+        $builder = $db->table("friendlist");
+
+        $data = [
+            "friend1" => $reqId,
+            "friend2" => $this->getIdFromUser($frId)
+        ];
+
+        $builder->insert($data);
+    }
+
+    public function getIdFromUser($username){
+        $db = \Config\Database::connect();
+        $builder = $db->table("users");
+        $userList = $builder->get()->getResult();
+        $userList = json_decode(json_encode($userList), true);
+
+        $id = 0;
+
+        foreach($userList as $user){
+            if ($user["username"] == $username){
+                $id = $user["id"];
+            }
+        }
+        
+        return $id;
     }
 }

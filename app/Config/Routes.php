@@ -36,14 +36,13 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get("/games/(:any)", "Games::game/$1");
 $routes->post("/", "Home");
-$routes->get("/test", "Hashtest");
+$routes->get("/games/(:any)", "Games::game/$1");
 $routes->get("/create", "Create");
-$routes->get("/friends", "Friends");
-$routes->post("/friends", "Friends::submit");
-$routes->get("/account", "Account");
 $routes->post("/create", "Create");
+$routes->get("/friends", "Friends");
+$routes->post("/friends", "Friends::friendRequests");
+$routes->get("/account", "Account");
 $routes->get("/tables/(:any)", "Scores::game/$1");
 
 /*

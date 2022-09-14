@@ -6,6 +6,8 @@ use App\Models\ScoreModel;
 
 use App\Models\FreindsModel;
 
+use App\Models\UserModel;
+
 class Friends extends BaseController
 {
     public function index()
@@ -57,5 +59,38 @@ class Friends extends BaseController
         ];
         return view("friends", $data);
 
+    }
+
+    public function friendRequests(){
+        $session = session();
+        $model = new UserModel();
+        $friendModel = new FreindsModel;
+        $friendName = esc(htmlspecialchars($_POST["username"]));
+
+        $userList = $model->findAll();
+
+        $response = array();
+        $success = false;
+
+        foreach($userList as $user){
+            if ($friendName == $user["username"]){
+                $success = true;
+                $friendModel->makeFriends($session->get("id"), $friendName);
+            }
+        }
+
+        if ($success){
+            $response = [
+                "success" => $success,
+                "message" => "Friend Request Sent"
+            ];
+        }else{
+            $response = [
+                "success" => $success,
+                "err" => "Friend Not Found"
+            ];
+        }
+
+        return json_encode($response);
     }
 }

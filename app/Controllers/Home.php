@@ -18,7 +18,7 @@ class Home extends BaseController
         ];
 
 
-        if ($this->request->getMethod() == 'post'){
+        if ($this->request->getMethod() == 'post'){ //TODO: Make sign in a ajax request then update page, check for already sign in 
             if ($this->authenticate()){
                 $data = [
                     'signin' => True,
