@@ -14,7 +14,7 @@ class Friends extends BaseController
 
         $scoreModel = new ScoreModel();
 
-        $session = \Config\Services::session();
+        $session = session();
 
         $friends = $model->getFreindList($session->get("id"));
         $pendingFriends = $model->pendingFriends($session->get("id"));
