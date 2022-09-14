@@ -24,4 +24,8 @@ class UserModel extends Model
     // protected $validationRules    = [];
     // protected $validationMessages = [];
     // protected $skipValidation     = false;
+
+    public function getId($username){
+        
+    }
 }

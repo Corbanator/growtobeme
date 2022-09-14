@@ -69,30 +69,21 @@ class Home extends BaseController
         $error = "";
         $id = 0;
 
-        for ($i = 0;$i < count($dusr); $i++){
-
-            if ($dpass[$i] == $password){
-                if ($dusr[$i] == $username){
+        for ($i = 0; $i < count($ids); $i++){
+            if ($password == $model->find($ids[$i])['password']){
+                if ($username == $model->find($ids[$i])["username"]){
                     $success = True;
                     $id = $ids[$i];
                 }
             }
-
         }
 
 
         if ($success){
             $data = [
-                "username" => $username,
+                "username" => $model->find($id)["username"],
                 "id" => $id,
                 "logedIn" => True
-            ];
-            $session->set($data);
-        }else{
-            $data = [
-                "username" => "",
-                "id" => "",
-                "logedIn" => False
             ];
             $session->set($data);
         }
