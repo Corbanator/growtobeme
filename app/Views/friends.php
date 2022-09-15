@@ -56,12 +56,12 @@
 
 <?php if (isset($pendingFreinds)) : ?>
     <?php foreach ($pendingFreinds as $friend) : ?>
-        <div class="card text-center p-1 mb-2">
+        <div class="card text-center p-1 mb-2" id="yesbutton">
             <h1><?= $friend["username"] ?> has requestioned a friend</h1>
             <p>PS They are lonely and you were chosen</p>
             <div class="row w-50" style="margin-right: auto; margin-left:auto;">
-                <button class="col-sm-5 btn btn-primary m-2" onclick="makeFriends()">Make a Friend Today</button>
-                <button class="col-sm-5 btn btn-danger m-2" onclick="removeListItem()">NO! No Friends</button>
+                <button class="col-sm-5 btn btn-primary m-2" id="<?= $friend['username'] ?>" onclick="makeFriends(this)">Make a Friend Today</button>
+                <button class="col-sm-5 btn btn-danger m-2" id="<?= $friend['username'] ?>" onclick="noFriends(this)">NO! No Friends</button>
             </div>
         </div>
     <?php endforeach ?>

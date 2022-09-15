@@ -79,32 +79,52 @@ class Friends extends BaseController
         $session = session();
         $model = new UserModel();
         $friendModel = new FreindsModel;
-        $friendName = esc(htmlspecialchars($_POST["username"]));
+        if (isset($_POST["type"])){
+            $friendName = esc(htmlspecialchars($_POST["username"]));
+            $id = $session->get("id");
 
-        $userList = $model->findAll();
+            if ($_POST['type'] == "request"){
 
-        $response = array();
-        $success = false;
+                $userList = $model->findAll();
 
-        foreach($userList as $user){
-            if ($friendName == $user["username"]){
-                $success = true;
-                $friendModel->makeFriends($session->get("id"), $friendName);
+                $response = array();
+                $success = false;
+
+                foreach($userList as $user){
+                    if ($friendName == $user["username"]){
+                        $success = true;
+                        $friendModel->makeFriends($session->get("id"), $friendName);
+                    }
+                }
+
+                if ($success){
+                    $response = [
+                        "success" => $success,
+                        "message" => "Friend Request Sent"
+                    ];
+                }else{
+                    $response = [
+                        "success" => $success,
+                        "err" => "Friend Not Found"
+                    ];
+                }
+
+                return json_encode($response);
+            }
+
+            if ($_POST['type'] == "accept") {
+                $friendId = $friendModel->getIdFromUser($friendName);
+                $thing = $friendModel->acceptFriends($session->get("id"), $friendId);
+
+                return $thing;
+            }
+
+            if ($_POST['type'] == "decline") {
+                $friendId = $friendModel->getIdFromUser($friendName);
+                $thing = $friendModel->declineFriends($session->get("id"), $friendId);
+
+                return "success";
             }
         }
-
-        if ($success){
-            $response = [
-                "success" => $success,
-                "message" => "Friend Request Sent"
-            ];
-        }else{
-            $response = [
-                "success" => $success,
-                "err" => "Friend Not Found"
-            ];
-        }
-
-        return json_encode($response);
     }
 }

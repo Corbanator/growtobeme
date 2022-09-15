@@ -30,6 +30,26 @@ function sendFriendRequest(){
     });
 }
 
-function noFriends(){
-    removeListItem();
+function makeFriends(e){
+    $.post("/friends", {
+
+        "type": "accept",
+        "username": e.id
+
+    }, function (data, status) {
+        console.log(e.parentNode);
+        e.parentNode.parentNode.remove();
+        location.reload();
+    });
+}
+
+function noFriends(e) {
+    $.post("/friends", {
+
+        "type": "decline",
+        "username": e.id
+
+    }, function (data, status) {
+        location.reload();
+    });
 }

@@ -63,7 +63,28 @@ class FreindsModel extends Model
         $builder->insert($data);
     }
 
-    public function getIdFromUser($username){
+    public function acceptFriends($userId, $friendId){
+        $db = \Config\Database::connect();
+        $builder = $db->table("friendlist");
+
+        $builder->set('accepted', 1);
+        $builder->where('friend2', $userId)->where('friend1', $friendId);
+        if ($builder->update()){
+            return true;
+        }
+        return false;
+    }
+
+    public function declineFriends($userId, $friendId)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table("friendlist");
+
+        $builder->where('friend2', $userId)->where("friend1", $friendId);
+        $builder->delete();
+    }
+
+    public function getIdFromUser($username){ //TODO: This should probably be in the userModel
         $db = \Config\Database::connect();
         $builder = $db->table("users");
         $userList = $builder->get()->getResult();
