@@ -41,7 +41,7 @@
     <div class="card p-4 mt-2 mb-5 w-75" style="margin-right: auto; margin-left: auto;">
         <form>
             <div class="form-group">
-                <label>Friend Username</label>
+                <label>Friend's Username</label>
                 <input type="text" class="form-control" id="friendName">
             </div>
         </form>
