@@ -4,11 +4,14 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
+use App\Models\ScoreModel;
+
 class Create extends BaseController
 {
     public function index()
     {
         $model = new UserModel();
+        $scoreModel = new ScoreModel();
 
         $data = [
             "site_title"=> "Grow To Be Me"
@@ -45,6 +48,7 @@ class Create extends BaseController
                 ];
 
                 $model->insert($user);
+                $scoreModel->insertDefaultScores();
                 return redirect("/");
             }else{
                 $data = [
@@ -56,5 +60,4 @@ class Create extends BaseController
 
         return view("create", $data);
     }
-
 }

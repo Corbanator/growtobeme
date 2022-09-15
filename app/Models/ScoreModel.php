@@ -25,7 +25,7 @@ class ScoreModel extends Model
     // protected $validationMessages = [];
     // protected $skipValidation     = false;
 
-    public function getScore($id){
+    public function getScoreForUser($id){
         $db = \Config\Database::connect();
 
         $builder = $db->table('users');

@@ -40,7 +40,7 @@ class Friends extends BaseController
         $user = array();
 
         for($i = 0; $i < count($friendArray); $i++){
-            $result = $scoreModel->getScore($friendArray[$i]["friend2"]);
+            $result = $scoreModel->getScoreForUser($friendArray[$i]["friend2"]);
 
             $result = json_decode(json_encode($result), true);
 

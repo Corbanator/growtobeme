@@ -219,7 +219,7 @@ class App extends BaseConfig
      *
      * @var int
      */
-    public $sessionTimeToUpdate = 300;
+    public $sessionTimeToUpdate = 1200;
 
     /**
      * --------------------------------------------------------------------------
@@ -258,7 +258,7 @@ class App extends BaseConfig
      *
      * @deprecated use Config\Cookie::$domain property instead.
      */
-    public $cookieDomain = '';
+    public $cookieDomain = '.localhost';
 
     /**
      * --------------------------------------------------------------------------
