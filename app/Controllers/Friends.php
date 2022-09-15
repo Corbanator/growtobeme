@@ -12,17 +12,30 @@ class Friends extends BaseController
 {
     public function index()
     {
-        $model = new FreindsModel();
-
+        $friendModel = new FreindsModel();
+        $userModel = new UserModel();
         $scoreModel = new ScoreModel();
 
         $session = session();
+        $id = $session->get("id");
 
-        $friends = $model->getFreindList($session->get("id"));
-        $pendingFriends = $model->pendingFriends($session->get("id"));
+        $friends = $friendModel->getFreindList($session->get("id"));
+        $pendingFriends = $friendModel->pendingFriends($session->get("id"));
         
-        $friendArray = json_decode(json_encode($friends), true);
+        $pendingFriends = json_decode(json_encode($pendingFriends), true);
 
+        $requestedFriends = array();
+
+        foreach($pendingFriends as $maybeFriend){
+            $friend = [
+                "username" => $userModel->find($maybeFriend["friend1"])["username"]
+            ];
+            array_push($requestedFriends, $friend);
+        }
+
+        //gets the scores for already friends
+        $friendArray = json_decode(json_encode($friends), true);
+    
         $scores = array();
         $user = array();
 
@@ -55,12 +68,12 @@ class Friends extends BaseController
             "site_title" => "Friends",
             "scores" => $scores,
             // "result" => $scoreModel->getScore($friendArray[1]["friend2"]) TODO: Delete this (was for debugging)
-            "pendingFrinds" => $pendingFriends
+            "pendingFreinds" => json_decode(json_encode($requestedFriends), true)
 
         ];
         return view("friends", $data);
 
-    }
+    } 
 
     public function friendRequests(){
         $session = session();

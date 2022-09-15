@@ -29,3 +29,7 @@ function sendFriendRequest(){
         statusDiv.replaceChild(card, statusDiv.childNodes[0]);
     });
 }
+
+function noFriends(){
+    removeListItem();
+}

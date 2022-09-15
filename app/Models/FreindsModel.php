@@ -38,10 +38,15 @@ class FreindsModel extends Model
     public function pendingFriends($id)
     {
         $db = \Config\Database::connect();
-        $union   = $db->table('friendList')->select('accepted, friend1')->where("friend2", $id)->where("accepted", 0);
-        $builder = $db->table('friendLIst')->select('accepted, friend2')->where("friend1", $id)->where("accepted", 0);
+        // $union   = $db->table('friendList')->select('accepted, friend1')->where("friend2", $id)->where("accepted", 0);
+        // $builder = $db->table('friendLIst')->select('accepted, friend2')->where("friend1", $id)->where("accepted", 0);
 
-        $query = $builder->union($union)->get()->getResult();
+        // $query = $builder->union($union)->get()->getResult();
+
+        $builder = $db->table("friendList");
+        $builder->select("friend1")->where("friend2", $id)->where("accepted", 0);
+        
+        $query = $builder->get()->getResult();
 
         return $query;
     }
