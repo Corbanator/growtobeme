@@ -55,6 +55,7 @@ class Friends extends BaseController
             "site_title" => "Friends",
             "scores" => $scores,
             // "result" => $scoreModel->getScore($friendArray[1]["friend2"]) TODO: Delete this (was for debugging)
+            "pendingFrinds" => $pendingFriends
 
         ];
         return view("friends", $data);

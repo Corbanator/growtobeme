@@ -30,6 +30,12 @@
         </div>
     <?php endif ?>
 <?php endif ?>
+
+
+<?php if (isset($pendingFreinds)) : ?>
+ <p><?=json_encode($pendingFreinds) ?></p>
+<?php endif ?>
+
 <?= $this->endSection() ?>
 
 <?= $this->section('menu') ?>
