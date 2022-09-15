@@ -4,12 +4,12 @@
 - [ ] Init all users with 0 as default scores
 - [ ] Change Account details
 - [ ] Insert Scores for games
-- [ ] Add Freind Pending
 - [ ] score tables for games
 - [ ] Add categories for games
 
 
 ### Completed Column ✓\
+- [x] Add Freind Pending
 - [x] Friend requests Being sent
 - [x] Add an error div for sign in
 - [x] Add validation create account requests
