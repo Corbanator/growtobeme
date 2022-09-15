@@ -1,6 +1,7 @@
 # Things Corban is begging me to do and I need to do
 
 ### Column Name
+- [ ] FIX USERNAME WRONG BUTTON ERROR
 - [ ] Init all users with 0 as default scores
 - [ ] Change Account details
 - [ ] Insert Scores for games
