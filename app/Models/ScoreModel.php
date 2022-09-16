@@ -36,4 +36,10 @@ class ScoreModel extends Model
 
         return $query;
     }
+
+    public function getScoresForGameId($id){
+        $db = \Config\Database::connect();
+
+        $builder = $db->table('scores');
+    }
 }
