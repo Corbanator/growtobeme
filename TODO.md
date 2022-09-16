@@ -1,14 +1,16 @@
 # Things Corban is begging me to do and I need to do
 
-### Column Name
+### To be done
+#### Before Release
 - [ ] FIX USERNAME WRONG BUTTON ERROR
 - [ ] Add auto sign in after creatation
 - [ ] Init all users with 0 as default scores
 - [ ] Change Account details
 - [ ] Insert Scores for games
 - [ ] score tables for games
-##### This will be much later
+##### After Release
 - [ ] Add categories for games
+- [ ] Move Friend Requests to a seperate tab from friends
 
 
 ### Completed Column ✓\
