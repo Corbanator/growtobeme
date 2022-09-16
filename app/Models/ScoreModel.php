@@ -34,12 +34,18 @@ class ScoreModel extends Model
         $builder->join('games', 'scores.gameId=games.id')->where("userid", $id);
         $query = $builder->get()->getResult();
 
-        return $query;
+        return json_decode(json_encode($query), true);
     }
 
     public function getScoresForGameId($id){
         $db = \Config\Database::connect();
 
         $builder = $db->table('scores');
+        $builder->select("username, score");
+        $builder->join("users", "scores.userid = users.id")->where("scores.gameid", $id);
+
+        $query = $builder->get()->getResult();
+
+        return json_decode(json_encode($query), true);
     }
 }

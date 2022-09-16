@@ -2,6 +2,7 @@
 
 ### Column Name
 - [ ] FIX USERNAME WRONG BUTTON ERROR
+- [ ] Add auto sign in after creatation
 - [ ] Init all users with 0 as default scores
 - [ ] Change Account details
 - [ ] Insert Scores for games

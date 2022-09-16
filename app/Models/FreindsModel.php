@@ -32,7 +32,7 @@ class FreindsModel extends Model
 
         $query = $builder->union($union)->get()->getResult();
 
-        return $query;
+        return json_decode(json_encode($query), true);
     }
 
     public function pendingFriends($id)
@@ -48,7 +48,7 @@ class FreindsModel extends Model
         
         $query = $builder->get()->getResult();
 
-        return $query;
+        return json_decode(json_encode($query), true);
     }
 
     public function makeFriends($reqId, $frId){ //TODO: check if request is already sent

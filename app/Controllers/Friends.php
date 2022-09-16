@@ -42,8 +42,6 @@ class Friends extends BaseController
         for($i = 0; $i < count($friendArray); $i++){
             $result = $scoreModel->getScoreForUser($friendArray[$i]["friend2"]);
 
-            $result = json_decode(json_encode($result), true);
-
 
                 $user = [
                     "username" => $result[0]['username']
@@ -68,7 +66,7 @@ class Friends extends BaseController
             "site_title" => "Friends",
             "scores" => $scores,
             // "result" => $scoreModel->getScore($friendArray[1]["friend2"]) TODO: Delete this (was for debugging)
-            "pendingFreinds" => json_decode(json_encode($requestedFriends), true)
+            "pendingFreinds" => $requestedFriends
 
         ];
         return view("friends", $data);
